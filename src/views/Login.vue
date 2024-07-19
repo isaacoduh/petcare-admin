@@ -3,7 +3,7 @@
     <form class="nt-8 space-y-6" method="POST" @submit.prevent="login">
       <div
         v-if="errorMsg"
-        class="flex items-center justify-between py-3 px-5 bg-read-500 text-white rounded"
+        class="flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded"
       >
         {{ errorMsg }}
         <span
