@@ -9,8 +9,9 @@
     </div>
   </div>
   <div v-else class="min-h-full bg-gray-200 flex items-center justify-center">
-    <!-- <Spinner /> -->
+    <Spinner />
   </div>
+  <Toast />
 </template>
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
@@ -20,6 +21,8 @@ const { title } = defineProps({ title: String });
 const sidebarOpened = ref(true);
 const currentUser = computed(() => store.state.user.data);
 import store from "../store";
+import Spinner from "./core/Spinner.vue";
+import Toast from "./core/Toast.vue";
 
 function toggleSidebar() {
   sidebarOpened.value = !sidebarOpened.value;

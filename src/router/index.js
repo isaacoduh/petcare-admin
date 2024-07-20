@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppLayout from "../components/AppLayout.vue";
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
+import Categories from "../views/Categories/Categories.vue";
 import store from "../store";
 const routes = [
   { path: "/", redirect: "/app" },
@@ -13,6 +14,7 @@ const routes = [
     meta: { requiresAuth: true },
     children: [
       { path: "dashboard", name: "app.dashboard", component: Dashboard },
+      { path: "categories", name: "app.categories", component: Categories },
     ],
   },
   {
