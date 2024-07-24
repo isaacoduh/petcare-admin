@@ -1,17 +1,19 @@
 <template>
-  <div v-if="currentUser.id" class="min-h-full bg-gray-200 flex">
-    <Sidebar :class="{ '-ml-[200px]': !sidebarOpened }" />
-    <div class="flex-1">
-      <Navbar @toggle-sidebar="toggleSidebar"></Navbar>
-      <main class="p-6">
-        <router-view></router-view>
-      </main>
+  <div>
+    <div v-if="currentUser.id" class="min-h-full bg-gray-200 flex">
+      <Sidebar :class="{ '-ml-[200px]': !sidebarOpened }" />
+      <div class="flex-1">
+        <Navbar @toggle-sidebar="toggleSidebar"></Navbar>
+        <main class="p-6">
+          <router-view></router-view>
+        </main>
+      </div>
     </div>
+    <div v-else class="min-h-full bg-gray-200 flex items-center justify-center">
+      <Spinner />
+    </div>
+    <Toast />
   </div>
-  <div v-else class="min-h-full bg-gray-200 flex items-center justify-center">
-    <Spinner />
-  </div>
-  <Toast />
 </template>
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";

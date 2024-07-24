@@ -3,6 +3,8 @@ import AppLayout from "../components/AppLayout.vue";
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Categories from "../views/Categories/Categories.vue";
+import Products from "../views/Products/Products.vue";
+import ProductForm from "../views/Products/ProductForm.vue";
 import store from "../store";
 const routes = [
   { path: "/", redirect: "/app" },
@@ -15,6 +17,20 @@ const routes = [
     children: [
       { path: "dashboard", name: "app.dashboard", component: Dashboard },
       { path: "categories", name: "app.categories", component: Categories },
+      { path: "products", name: "app.products", component: Products },
+      {
+        path: "products/create",
+        name: "app.products.create",
+        component: ProductForm,
+      },
+      {
+        path: "products/:id",
+        name: "app.products.edit",
+        component: ProductForm,
+        props: {
+          id: (value) => /^\d+$/.test(value),
+        },
+      },
     ],
   },
   {

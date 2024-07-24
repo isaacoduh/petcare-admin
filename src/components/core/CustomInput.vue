@@ -34,6 +34,27 @@
           :placeholder="label"
         ></textarea>
       </template>
+      <template v-else-if="type === 'richtext'">
+        <ckeditor
+          :editor="editor"
+          :required="required"
+          :model-value="props.modelValue"
+          @input="onChange"
+          :class="inputClasses"
+          :config="editorConfig"
+        ></ckeditor>
+      </template>
+      <template v-else-if="type === 'file'">
+        <input
+          :type="type"
+          :name="name"
+          :required="required"
+          :value="props.modelValue"
+          @input="emit('change', $event.target.files[0])"
+          :class="inputClasses"
+          :placeholder="label"
+        />
+      </template>
       <template v-else-if="type === 'checkbox'">
         <input
           :id="id"
@@ -66,15 +87,19 @@
       >
         {{ append }}
       </span>
-      <small v-if="errors && errors[0]" class="text-red-600">{{
-        errors[0]
-      }}</small>
     </div>
+    <small v-if="errors && errors[0]" class="text-red-600">{{
+      errors[0]
+    }}</small>
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from "vue";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+
+const editor = ClassicEditor;
+
 const props = defineProps({
   modelValue: [String, Number, File],
   label: String,
@@ -108,7 +133,6 @@ const id = computed(() => {
 
   return `id-${Math.floor(1000000 + Math.random() * 1000000)}`;
 });
-
 const inputClasses = computed(() => {
   const cls = [
     `block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`,
@@ -126,7 +150,6 @@ const inputClasses = computed(() => {
   }
   return cls.join(" ");
 });
-
 const emit = defineEmits(["update:modelValue", "change"]);
 
 function onChange(value) {
@@ -134,3 +157,5 @@ function onChange(value) {
   emit("change", value);
 }
 </script>
+
+<style scoped></style>
