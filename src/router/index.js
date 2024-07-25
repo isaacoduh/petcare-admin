@@ -5,6 +5,8 @@ import Dashboard from "../views/Dashboard.vue";
 import Categories from "../views/Categories/Categories.vue";
 import Products from "../views/Products/Products.vue";
 import ProductForm from "../views/Products/ProductForm.vue";
+import Orders from "../views/Orders/Orders.vue";
+import OrderView from "../views/Orders/OrderView.vue";
 import store from "../store";
 const routes = [
   { path: "/", redirect: "/app" },
@@ -30,6 +32,16 @@ const routes = [
         props: {
           id: (value) => /^\d+$/.test(value),
         },
+      },
+      {
+        path: "orders",
+        name: "app.orders",
+        component: Orders,
+      },
+      {
+        path: "orders/:id",
+        name: "app.orders.view",
+        component: OrderView,
       },
     ],
   },
