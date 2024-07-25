@@ -165,13 +165,6 @@ function onImageDragEnd(ev) {
 }
 
 function updateImagePositions() {
-  /**
-   * [
-   *   [1, 1],
-   *   [4, 2],
-   *   [5, 3],
-   * ]
-   */
   imagePositions.value = Object.fromEntries(
     imageUrls.value
       .filter((im) => !im.deleted)
