@@ -38,7 +38,7 @@
     <!--/  Order Details-->
 
     <!--  Customer Details-->
-    <!-- <div>
+    <div>
       <h2 class="text-xl font-semibold mt-6 pb-2 border-b border-gray-300">
         Customer Details
       </h2>
@@ -60,7 +60,7 @@
           </tr>
         </tbody>
       </table>
-    </div> -->
+    </div>
     <!--/  Customer Details-->
 
     <!--  Addresses Details-->
@@ -70,14 +70,14 @@
           Billing Address
         </h2>
         <!--  Billing Address Details-->
-        <!-- <div>
+        <div>
           {{ order.customer.billingAddress.address1 }},
           {{ order.customer.billingAddress.address2 }} <br />
           {{ order.customer.billingAddress.city }},
           {{ order.customer.billingAddress.zipcode }} <br />
           {{ order.customer.billingAddress.state }},
           {{ order.customer.billingAddress.country }} <br />
-        </div> -->
+        </div>
         <!--/  Billing Address Details-->
       </div>
       <div>
@@ -85,14 +85,14 @@
           Shipping Address
         </h2>
         <!--  Shipping Address Details-->
-        <!-- <div>
+        <div>
           {{ order.customer.shippingAddress.address1 }},
           {{ order.customer.shippingAddress.address2 }} <br />
           {{ order.customer.shippingAddress.city }},
           {{ order.customer.shippingAddress.zipcode }} <br />
           {{ order.customer.shippingAddress.state }},
           {{ order.customer.shippingAddress.country }} <br />
-        </div> -->
+        </div>
         <!--/  Shipping Address Details-->
       </div>
     </div>
